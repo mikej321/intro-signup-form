@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
+
+// Fonts
+$poppins: 'Poppins', sans-serif
+
+// Primary Colors
+$red: hsl(0, 100%, 74%)
+$green: hsl(154, 59%, 51%)
+
+// Accent
+$blue: hsl(248, 32%, 49%)
+
+// Neutral
+$dark_blue: hsl(249, 10%, 26%)
+$grayish_blue: hsl(246, 25%, 77%)
+
+// Font Size
+$font_size: 16px
+
+*,
+*::before,
+*::after
+    box-sizing: border-box
+
+*
+    margin: 0
+    padding: 0
+    scroll-behavior: smooth
+
+html
+    font-size: 62.5%
+
+img
+    width: 100%
+    height: auto
+    object-fit: cover
+
+body
+    position: relative
+    font-size: $font_size
+    font-family: $poppins
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    align-items: center
+    background-image: url('../images/bg-intro-mobile.png')
+    background-color: $red
+
+@media screen and (min-width: 600px)
+    body
+        justify-content: center
+    
+
+.container
+    display: grid
+    max-width: 31rem
+    grid-template-areas: "header" "main"
+    padding: 8rem 2rem 0rem
+
+@media screen and (min-width: 600px)
+    .container
+        max-width: 90rem
+        grid-template-areas: "header main"
+        grid-template-columns: repeat(2, 1fr)
+        padding: 0
+    
+header
+    grid-area: header
+    display: flex
+    flex-direction: column
+    align-items: center
+
+@media screen and (min-width: 600px)
+    header
+        align-self: center
+        margin-top: 6rem
+
+
+
+header h1
+    text-align: center
+    font-size: 2.2rem
+    line-height: 3.2rem
+    max-width: 30rem
+    color: white
+    margin-bottom: 2rem
+
+@media screen and (min-width: 600px)
+    header h1
+        font-size: 4rem
+        text-align: left
+        line-height: 4.5rem
+        max-width: unset
+    
+
+header p
+    text-align: center
+    font-size: 1.3rem
+    color: white
+    font-weight: 500
+    justify-self: center
+    margin-bottom: 5rem
+    max-width: 26rem
+    line-height: 2.1rem
+
+@media screen and (min-width: 600px)
+    header p
+        text-align: left
+        max-width: unset
+    
+
+main
+    grid-area: main
+    display: flex
+    flex-direction: column
+    align-items: center
+
+main .try-container
+    background: $blue
+    color: white
+    font-family: $poppins
+    text-align: center
+    width: 100%
+    height: 8rem
+    line-height: 2.2rem
+    border: none
+    border-radius: 8px
+    box-shadow: 0px 6px rgba(0, 0, 0, 0.2)
+    margin-bottom: 2rem
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1.3rem
+    padding-inline: 5rem
+
+@media screen and (min-width: 600px)
+    main .try-container       
+        height: 5rem
+        padding-inline: 0
+
+
+.try-free
+    font-weight: 700
+
+form
+    background: white
+    padding: 2rem
+    display: flex
+    flex-direction: column
+    gap: 1.5rem
+    border-radius: 8px
+    box-shadow: 0px 6px rgba(0, 0, 0, 0.13)
+    input
+        width: 100%
+        height: 4.5rem
+        border: 1px solid lighten(lightgrey, 5%)
+        border-radius: 4px
+        padding-left: 1.5rem
+        &::placeholder
+            font-weight: 600
+            font-size: 1.2rem
+        &:focus
+            outline: none
+        &[error='']
+            border: 1px solid $red
+    button
+        height: 4.5rem
+        background: $green
+        border: none
+        border-radius: 4px
+        color: white
+        font-family: inherit
+        text-transform: uppercase
+        font-weight: 600
+        letter-spacing: .3px
+        box-shadow: 0px 3px darken($green, 10%)
+        transition: background 0.2s ease-in-out
+        cursor: pointer
+        &:hover
+            background: lighten($green, 10%)
+
+@media screen and (min-width: 600px)
+    form
+        padding: 3rem
+        width: 100%
+
+.input-container
+    display: flex
+    flex-direction: column
+    position: relative
+    gap: .5rem
+    img
+        max-width: 2rem
+        position: absolute
+        bottom: 50%
+        right: 2rem
+        opacity: 0
+        transition: all 0.2s ease-in-out
+        &[error='']
+            opacity: 1
+    .error-msg
+        max-height: 0px
+        overflow: hidden
+        color: $red
+        font-size: 1rem
+        font-style: italic
+        align-self: end
+        opacity: 0
+        transition: all 0.2s ease-in-out
+        &[error='']
+            max-height: fit-content
+            overflow: auto
+            opacity: 1
+
+
+
+.terms
+    margin-top: -.3rem
+    font-size: .9rem
+    text-align: center
+    color: $grayish_blue
+    font-weight: 500
+    padding-inline: 1.4rem
+    line-height: 1.6rem
+    a
+        text-decoration: none
+        color: $red
+        font-weight: 700
+
+footer
+    position: fixed
+    bottom: 1rem
